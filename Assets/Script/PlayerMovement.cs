@@ -3,21 +3,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private float moveSpeed = 1f;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    public float moveSpeed = 1f;
     void Update()
     {
         if (Input.GetMouseButton(0))
         {
-            rb.transform.position = new UnityEngine.Vector2(moveSpeed * Time.deltaTime, rb.position.y);
+            UnityEngine.Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            UnityEngine.Vector3 target = transform.position;
+            target.x = worldPoint.x;
+            transform.position = UnityEngine.Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
         }
-
-        Debug.Log("rb: " + rb);
     }
-
 }

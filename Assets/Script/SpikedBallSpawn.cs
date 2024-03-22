@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class SpikedBallSpawn : MonoBehaviour
 {
-    public GameObject objectPrefab;
-    public float spawnRate = 2f;
-    public float spawnDelay = 1f;
+    [SerializeField] private GameObject[] spikePrefab;
+    [SerializeField] private float secondSpawn = 0.5f;
+    [SerializeField] private float minSpike;
+    [SerializeField] private float maxSpike;
 
-    void Start()
+    //Start is called before the first from update
+    private void Start()
     {
-        InvokeRepeating("SpawnObject", spawnDelay, spawnRate);
+        StartCoroutine(SpikeSpawn());
+      
     }
 
-    void SpawnObject()
+    IEnumerator SpikeSpawn()
     {
-        float randomY = Random.Range(-2f, 2f); // Vị trí ngẫu nhiên theo trục x
-        Vector3 spawnPosition = new Vector3(transform.position.x, randomY, 0f);
-        Instantiate(objectPrefab, spawnPosition, Quaternion.identity);
+        while (true)
+        {
+            var wanted = Random.Range(minSpike, maxSpike);
+            var position = new Vector3(wanted, transform.position.y);
+            GameObject gameObject = Instantiate(spikePrefab[Random.Range(0, spikePrefab.Length)],
+                position, Quaternion.identity);
+            yield return new WaitForSeconds(secondSpawn);
+            //Destroy(gameObject, 5f);
+        }
     }
 }
