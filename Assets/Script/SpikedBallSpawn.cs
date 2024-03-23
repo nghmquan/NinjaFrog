@@ -25,7 +25,7 @@ public class SpikedBallSpawn : MonoBehaviour
             GameObject gameObject = Instantiate(spikePrefab[Random.Range(0, spikePrefab.Length)],
                 position, Quaternion.identity);
             yield return new WaitForSeconds(secondSpawn);
-            //Destroy(gameObject, 5f);
+            Destroy(gameObject, 0f);
         }
     }
 }
