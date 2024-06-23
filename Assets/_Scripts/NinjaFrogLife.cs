@@ -32,6 +32,7 @@ public class NinjaFrogLife : MonoBehaviour
         ninjaFrogAnimation.DeathAnimation();
         gameManager.SetNinjaFrogDeath(true);
         ninjaFrogMovement.GetRigidbodyNinjaFrog().bodyType = RigidbodyType2D.Static;
+        this.enabled = false;
         ninjaFrogMovement.GetCollider2DNinjaFrog().isTrigger = true;
         loopingBackground.SetLooping(false);
     }

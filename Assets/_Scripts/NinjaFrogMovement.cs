@@ -48,7 +48,7 @@ public class NinjaFrogMovement : MonoBehaviour
             targetPoint = new Vector3(worldPoint.x, transform.position.y, transform.position.z);
             GetDirection();
             direction.Normalize();
-            moveSpeed = basedMoveSpeed * gameManager.GetGameSpeed();
+            moveSpeed = (basedMoveSpeed * gameManager.GetGameSpeed()) + 1;
             transform.position = Vector2.MoveTowards(transform.position, targetPoint, moveSpeed * Time.deltaTime);
             ninjaFrog.CheckIsRunning(true);
         }else{

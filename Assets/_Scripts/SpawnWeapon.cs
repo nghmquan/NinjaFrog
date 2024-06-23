@@ -23,7 +23,7 @@ public class SpawnWeapon : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        elapsedTime = Time.deltaTime;
+        elapsedTime = Time.deltaTime + 1;
 
         if(Input.GetMouseButtonDown(0) && !isPlayerClick){
             isPlayerClick = true;
@@ -49,7 +49,7 @@ public class SpawnWeapon : MonoBehaviour
                 gameManager.RemoveSpawnedObjects(gameObject);
             }
 
-             // Increase gravity scale over time
+            //Increase gravity scale over time
             Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
