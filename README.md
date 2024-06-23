@@ -10,4 +10,4 @@ This is tutorial for gameplay:
 Please comment to help me edit, upgrade and add more ideas for further development. Thank you.
 
 Link gameplay:
-minhquan12.itch.io/ninja-frog
+https://minhquan12.itch.io/ninja-frog
