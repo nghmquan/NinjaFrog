@@ -6,7 +6,7 @@ public class WeaponsCollide : MonoBehaviour
     [SerializeField] private Rigidbody2D rigidbodyWeapon;
     [SerializeField] private Animator animatorWeapon;
 
-    private List<string> weaponList = new List<string> {"Ground","NinjaFrog","Weapon"};
+    private List<string> weaponList = new List<string> {"Ground","NinjaFrog"};
 
     //Set collision when it collide another object
     private void OnCollisionEnter2D(Collision2D collision)

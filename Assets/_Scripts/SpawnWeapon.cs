@@ -8,6 +8,8 @@ public class SpawnWeapon : MonoBehaviour
     [SerializeField] private float minPos;
     [SerializeField] private float maxPos;
 
+    private bool isPlayerClick = false;
+
     private float elapsedTime = 0f;
 
     private NinjaFrogMovement ninjaFrog;
@@ -17,15 +19,20 @@ public class SpawnWeapon : MonoBehaviour
     void Start(){
         gameManager = FindFirstObjectByType<GameManager>();
         ninjaFrog = FindObjectOfType<NinjaFrogMovement>();
-        StartCoroutine(ObjectsSpawn());
     }
 
     // Update is called once per frame
     void Update(){
         elapsedTime = Time.deltaTime;
+
+        if(Input.GetMouseButtonDown(0) && !isPlayerClick){
+            isPlayerClick = true;
+            StartCoroutine(ObjectsSpawn());
+        }
     }
 
     IEnumerator ObjectsSpawn(){
+        yield return new WaitForSeconds(5f);
         while (true)
         {
             if(gameManager.IsNinjaFrogDeath()) yield break;
