@@ -24,7 +24,7 @@ public class ItemsManager : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground")){
             rigidbodyItems.bodyType = RigidbodyType2D.Static;
             colliderItems.isTrigger = true;
-            StartCoroutine(StartFlashAfterDelay(3f));
+            StartCoroutine(StartFlashAfterDelay(5f));
         }
     }
 

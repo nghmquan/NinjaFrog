@@ -8,7 +8,6 @@ public class SpawnWeapon : MonoBehaviour
     [SerializeField] private float minPos;
     [SerializeField] private float maxPos;
 
-    private bool isPlayerClick = false;
 
     private float elapsedTime = 0f;
 
@@ -24,14 +23,9 @@ public class SpawnWeapon : MonoBehaviour
     // Update is called once per frame
     void Update(){
         elapsedTime = Time.deltaTime + 1;
-
-        if(Input.GetMouseButtonDown(0) && !isPlayerClick){
-            isPlayerClick = true;
-            StartCoroutine(ObjectsSpawn());
-        }
     }
 
-    IEnumerator ObjectsSpawn(){
+    public IEnumerator WeaponsSpawn(){
         yield return new WaitForSeconds(5f);
         while (true)
         {

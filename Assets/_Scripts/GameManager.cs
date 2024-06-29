@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,10 +11,28 @@ public class GameManager : MonoBehaviour
     private float elapsedTime = 0f;
     private bool isNinjaFrogDeath = false;
     
+    private bool isPlayerClick = false;
+
     private List<GameObject> objectsList = new List<GameObject>();
+    [SerializeField] private SpawnWeapon spawnWeapon;
+    [SerializeField] private SpawnItems spawnItems;
+
+    [SerializeField] private GameObject[] uiObject;
 
     // Update is called once per frame
     void Update(){
+
+        if(Input.GetMouseButtonDown(0) && !isPlayerClick){
+            isPlayerClick = true;
+            AudioManager.Instance.BackgroundMusic();
+            StartCoroutine(spawnItems.ItemsSpawn());
+            StartCoroutine(spawnWeapon.WeaponsSpawn());
+            for(int i = 0; i < uiObject.Length; i++){
+                Destroy(uiObject[i]);
+            }
+
+        }
+
         GameSpeedIncreaseOverTime();
     }
 

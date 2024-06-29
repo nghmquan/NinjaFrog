@@ -9,7 +9,6 @@ public class SceneLoader : Singleton<SceneLoader>
             case SceneName.MAIN_MENU:
                 return "MainMenu";
             case SceneName.PLAY_GAME:
-                AudioManager.Instance.BackgroundMusic();
                 return "PlayGame";
             case SceneName.GAME_OVER:
                 AudioManager.Instance.StopAudio();

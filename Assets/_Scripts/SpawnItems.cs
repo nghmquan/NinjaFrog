@@ -12,10 +12,9 @@ public class SpawnItems : MonoBehaviour
     // Start is called before the first frame update
     void Start(){
         gameManager = FindObjectOfType<GameManager>();
-        StartCoroutine(ObjectsSpawn());
     }
 
-    IEnumerator ObjectsSpawn(){
+    public IEnumerator ItemsSpawn(){
         while (true) 
         {
             if(gameManager.IsNinjaFrogDeath()) yield break;

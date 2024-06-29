@@ -8,6 +8,7 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private AudioSource itemsCollectAudio;
     [SerializeField] private AudioSource gameOverAudio;
 
+
     public void StopAudio(){
         backgroundAudio.Stop();
         clickAudio.Stop();
